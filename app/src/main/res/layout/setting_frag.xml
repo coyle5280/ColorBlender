@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@android:color/black"
+    android:weightSum="1">
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Color"
+        android:id="@+id/fragBackGroundButton"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="97dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragColorText"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.10"
+        android:layout_marginTop="10dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello"/>
+        android:text="@string/setbackground"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkboxBackground"
+        android:layout_gravity="center_horizontal"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setText"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkboxText"
+        android:layout_gravity="center_horizontal"
+        android:checked="false" />
+
 </LinearLayout>

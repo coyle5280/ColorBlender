@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,6 +37,9 @@ public class MainActivity extends Activity {
     int start = 0;
     private double progressBarIndicator = 0;
     int blendedColor;
+    boolean settingsBoolean = false;
+    SettingsFragment settings;
+
 
     //  Menu
     ActionBar actionBar;
@@ -53,8 +57,12 @@ public class MainActivity extends Activity {
 
         setupButtons();
         setupTextViews();
+        setupFragment();
 
+    }
 
+    private void setupFragment() {
+        settings = new SettingsFragment();
     }
 
     private void setupTextViews() {
@@ -238,9 +246,19 @@ public class MainActivity extends Activity {
 
 
     private void callSettings() {
-
-        Fragment settings = new Fragment();
-       // settings.setArguments(i);
+        if(!settingsBoolean) {
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.fragHolder, settings);
+            fragmentTransaction.commit();
+            settingsBoolean = true;
+        }else{
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.remove(settings);
+            fragmentTransaction.commit();
+            settingsBoolean = false;
+        }
     }
 
 }
