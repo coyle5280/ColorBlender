@@ -1,10 +1,17 @@
-<LinearLayout
+<RelativeLayout
     android:layout_height="fill_parent"
     android:layout_width="fill_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/main">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/fragHolder">
+     </FrameLayout>
 
 
 
@@ -15,36 +22,59 @@
         android:layout_margin="20dp" />
 
 
-    <Button
-    android:layout_width="122dp"
-    android:layout_height="wrap_content"
-    android:text="New Button"
-    android:id="@+id/button"
-        android:layout_gravity="center_horizontal" />
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/blendBar"
+        android:layout_gravity="left|bottom"
+        android:max="100"
+        android:indeterminate="false"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp" />
 
     <Button
-        android:layout_width="122dp"
+        android:layout_width="152dp"
         android:layout_height="wrap_content"
-        android:text="New Button2"
+        android:text="Color 2"
         android:id="@+id/button2"
         android:gravity="center_horizontal"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="right|center_vertical"
+        android:layout_below="@+id/blendColorTextView"
+        android:layout_alignParentEnd="true" />
 
     <TextView
-        android:layout_width="84dp"
-        android:layout_height="wrap_content"
-        android:text="New Text"
+        android:layout_width="116dp"
+        android:layout_height="136dp"
         android:id="@+id/color1TextView"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.06"
-        android:layout_marginTop="50dp" />
+        android:layout_gravity="right|bottom"
+        android:layout_weight="0.49"
+        android:background="#0f3ddc"
+        android:layout_below="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignBottom="@+id/color2TextView" />
+
+    <Button
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:text="Color 1"
+        android:id="@+id/button"
+        android:layout_gravity="left|center_vertical"
+        android:layout_below="@+id/blendColorTextView"
+        android:layout_alignStart="@+id/blendBar" />
 
     <TextView
         android:layout_width="82dp"
-        android:layout_height="wrap_content"
-        android:text="New Text"
+        android:layout_height="89dp"
         android:id="@+id/color2TextView"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.07"
-        android:layout_marginTop="50dp" />
-</LinearLayout>
+        android:layout_weight="0.26"
+        android:background="#3cff41"
+        android:layout_below="@+id/button2"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:layout_gravity="left|bottom" />
+
+</RelativeLayout>
